@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "651750757685",
+    "firebase_url": "https://artesanato-d7012.firebaseio.com",
+    "project_id": "artesanato-d7012",
+    "storage_bucket": "artesanato-d7012.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:651750757685:android:4022e97ff7a86766",
+        "android_client_info": {
+          "package_name": "com.project.art.artesanato20"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "651750757685-s7r1aaakkcjaefi53klluslt9nl199rn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.project.art.artesanato20",
+            "certificate_hash": "1a69be921214452bb73dd6764b7698dbe01f8c72"
+          }
+        },
+        {
+          "client_id": "651750757685-f3qfosjrkemta451a8eutau49p1k7nr8.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "651750757685-f3qfosjrkemta451a8eutau49p1k7nr8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7X-0Y4jACEMuQll4ZiCxeCCz0tDyT-X8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "651750757685-f3qfosjrkemta451a8eutau49p1k7nr8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
