@@ -113,7 +113,7 @@ public class Artigos extends Fragment {
     public void fillArtList(View view) {
 
         ARTIGOS = ArtigoFirebaseManager.getInstance().getItemList();
-
+        System.out.println(ARTIGOS.size());
         artAdapter = new ArtAdapter(ARTIGOS);
         rv.setAdapter(artAdapter);
     }

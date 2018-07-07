@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardItem"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -83,35 +83,6 @@
                 app:layout_constraintTop_toTopOf="@+id/imageView5"
                 app:layout_constraintVertical_bias="0.115" />
 
-            <TextView
-                android:id="@+id/numLikesCard"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:layout_marginStart="124dp"
-                android:layout_marginTop="8dp"
-                android:text="Likes"
-                android:textColor="@android:color/background_light"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imgItemCard"
-                app:layout_constraintTop_toBottomOf="@+id/nomeItemCard"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <ImageView
-                android:id="@+id/imageView10"
-                android:layout_width="44dp"
-                android:layout_height="33dp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/numLikesCard"
-                app:layout_constraintTop_toBottomOf="@+id/nomeItemCard"
-                app:layout_constraintVertical_bias="1.0"
-                app:srcCompat="@drawable/like" />
         </android.support.constraint.ConstraintLayout>
     </LinearLayout>
 

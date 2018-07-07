@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,7 +37,7 @@ public class LoadingActivity extends AppCompatActivity {
         View decorView = getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
         decorView.setSystemUiVisibility(uiOptions);
-
+        System.out.println(FirebaseAuth.getInstance().getCurrentUser());
 
         FirebaseApp.initializeApp(this);
         loadUsers();
@@ -53,7 +54,7 @@ public class LoadingActivity extends AppCompatActivity {
                     System.out.println(e);
                 } finally {
                     Intent i = new Intent(LoadingActivity.this,
-                            MainActivity.class);
+                            Split.class);
                     startActivity(i);
                     finish();
                 }

@@ -2,6 +2,7 @@ package com.project.art.artesanato20;
 
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -27,7 +28,8 @@ public class Artesaos extends Fragment {
     RecyclerView rv;
     ArrayList<Artesao> ARTESAOS = new ArrayList<>();
     UserAdapter userAdapter;
-
+    FloatingActionButton QRC;
+    
     public Artesaos() {
         // Required empty public constructor
     }
@@ -40,6 +42,8 @@ public class Artesaos extends Fragment {
 
         final View rootView = inflater.inflate(R.layout.fragment_artesaos, container, false);
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getActivity());
+
+        QRC = rootView.findViewById(R.id.floatQRC);
 
         rv = rootView.findViewById(R.id.recViewArtesao);
         rv.setHasFixedSize(true);
@@ -55,7 +59,6 @@ public class Artesaos extends Fragment {
     }
 
     public void fillArtList(View view) {
-        System.out.println("olaw");
         ARTESAOS = ArtesaoFirebaseManager.getInstance().getArtList();
 
         userAdapter = new UserAdapter(ARTESAOS);

@@ -50,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        System.out.println(ArtigoFirebaseManager.getInstance().getItemList().size());
+
         ArrayList<Artesao> art = ArtesaoFirebaseManager.getInstance().getArtList();
 
         // Create the adapter that will return a fragment for each of the three

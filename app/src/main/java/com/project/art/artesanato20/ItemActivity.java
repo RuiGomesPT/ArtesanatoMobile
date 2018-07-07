@@ -60,7 +60,7 @@ public class ItemActivity extends AppCompatActivity {
     Artigo artigo;
     Artesao artesao;
     ImageView img, imgArt;
-    TextView name, type, likes, nameArt;
+    TextView name, type, nameArt;
     ImageLoader imageLoader;
     SupportMapFragment mapFragment;
     private StorageReference mStorageRef;
@@ -98,11 +98,9 @@ public class ItemActivity extends AppCompatActivity {
         nameArt = findViewById(R.id.textArtItem);
         type = findViewById(R.id.typeTextItem);
         img = findViewById(R.id.imageTextItem);
-        likes = findViewById(R.id.likesTextItem);
         imgArt = findViewById(R.id.imgTextArtItem);
 
         name.setText(artigo.getNome());
-        likes.setText(Integer.toString(artigo.getLikes()) + " Likes");
         nameArt.setText(artesao.getName());
 
 

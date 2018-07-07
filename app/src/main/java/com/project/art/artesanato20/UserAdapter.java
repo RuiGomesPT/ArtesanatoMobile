@@ -79,7 +79,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
             System.out.println("Mmm");
             name = itemView.findViewById(R.id.nomeItemCard);
             image = itemView.findViewById(R.id.imgItemCard);
-            likes = itemView.findViewById(R.id.numLikesCard);
             cv = itemView.findViewById(R.id.cardItem);
 
 

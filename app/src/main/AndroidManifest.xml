@@ -27,7 +27,9 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDsZMZGF0B7pyeWNaWpDMrzrnwowW39bJs" />
 
-        <activity android:name=".Auth">
+        <activity
+            android:name=".Auth"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -44,6 +46,14 @@
         <activity
             android:name=".ItemActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Split"
+            android:label="@string/title_activity_split"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Profile"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

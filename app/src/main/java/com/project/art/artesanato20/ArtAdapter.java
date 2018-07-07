@@ -54,7 +54,6 @@ public class ArtAdapter extends RecyclerView.Adapter<ArtAdapter.ViewHolder> {
             super(itemView);
             name = itemView.findViewById(R.id.nomeItemCard);
             image = itemView.findViewById(R.id.imgItemCard);
-            likes = itemView.findViewById(R.id.numLikesCard);
             cv = itemView.findViewById(R.id.cardItem);
 
 
@@ -68,7 +67,6 @@ public class ArtAdapter extends RecyclerView.Adapter<ArtAdapter.ViewHolder> {
     public void onBindViewHolder(final ViewHolder holder, int position) {
         final Artigo artigo = itemList.get(position);
         holder.name.setText(artigo.getNome());
-        holder.likes.setText(Integer.toString(artigo.getLikes()));
 
         mStorageRef = FirebaseStorage.getInstance().getReference();
         StorageReference artImg = mStorageRef.child("images").child(artigo.getPhotoURL());
