@@ -3,7 +3,6 @@ package com.project.art.artesanato20;
 import android.content.Context;
 import android.content.Intent;
 
-import android.graphics.Matrix;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
@@ -20,7 +19,6 @@ import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.project.art.artesanato20.models.Artigo;
-import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.IOException;
@@ -53,7 +51,7 @@ public class ArtAdapter extends RecyclerView.Adapter<ArtAdapter.ViewHolder> {
         public ViewHolder(View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.nomeItemCard);
-            image = itemView.findViewById(R.id.imgItemCard);
+            image = itemView.findViewById(R.id.imgArtLay);
             cv = itemView.findViewById(R.id.cardItem);
 
 

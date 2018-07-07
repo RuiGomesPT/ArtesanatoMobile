@@ -52,8 +52,10 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Profile"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".QRS" />
+        <activity android:name=".PerfilArtesao"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

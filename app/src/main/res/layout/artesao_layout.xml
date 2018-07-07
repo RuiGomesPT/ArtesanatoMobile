@@ -2,7 +2,7 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cardItem"
+    android:id="@+id/cardArt"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -67,13 +67,13 @@
                 app:srcCompat="@android:color/background_dark" />
 
             <TextView
-                android:id="@+id/nomeItemCard"
+                android:id="@+id/nameArtCard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:text="Nome Artigo"
+                android:text="Nome Artesao"
                 android:textColor="@android:color/background_light"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -83,7 +83,24 @@
                 app:layout_constraintTop_toTopOf="@+id/imageView5"
                 app:layout_constraintVertical_bias="0.115" />
 
+            <TextView
+                android:id="@+id/typeArtCard"
+                android:layout_width="175dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:gravity="center"
+                android:text="TextView"
+                android:textColor="@android:color/background_light"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/imageView5"
+                app:layout_constraintHorizontal_bias="0.299"
+                app:layout_constraintStart_toEndOf="@+id/imgArtLay" />
+
         </android.support.constraint.ConstraintLayout>
     </LinearLayout>
 
 </android.support.v7.widget.CardView>
+

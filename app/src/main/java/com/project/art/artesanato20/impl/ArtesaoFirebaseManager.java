@@ -29,7 +29,6 @@ public class ArtesaoFirebaseManager implements IArtesao {
         Artesao artesao = new Artesao();
         for (int i = 0; i < artList.size(); i++) {
             if (artList.get(i).getId().equals(id)) {
-
                 artesao = artList.get(i);
                 return artesao;
             }

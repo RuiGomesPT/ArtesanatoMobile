@@ -6,18 +6,22 @@ public class Artesao {
     private String photoURL;
     private String email;
     private String tipo;
+    private String nomeAtv;
+    private String codAtv;
     private double xCoor;
     private double yCoor;
 
     public Artesao() {
     }
 
-    public Artesao(String id, String name, String photoURL, String email, String tipo, double xCoor, double yCoor) {
+    public Artesao(String id, String name, String photoURL, String email, String tipo, String nomeAtv, String codAtv, double xCoor, double yCoor) {
         this.id = id;
         this.name = name;
         this.photoURL = photoURL;
         this.email = email;
         this.tipo = tipo;
+        this.nomeAtv = nomeAtv;
+        this.codAtv = codAtv;
         this.xCoor = xCoor;
         this.yCoor = yCoor;
     }
@@ -76,5 +80,21 @@ public class Artesao {
 
     public void setyCoor(double yCoor) {
         this.yCoor = yCoor;
+    }
+
+    public String getNomeAtv() {
+        return nomeAtv;
+    }
+
+    public void setNomeAtv(String nomeAtv) {
+        this.nomeAtv = nomeAtv;
+    }
+
+    public String getCodAtv() {
+        return codAtv;
+    }
+
+    public void setCodAtv(String codAtv) {
+        this.codAtv = codAtv;
     }
 }

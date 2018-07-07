@@ -1,6 +1,7 @@
 package com.project.art.artesanato20;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -29,7 +30,7 @@ public class Artesaos extends Fragment {
     ArrayList<Artesao> ARTESAOS = new ArrayList<>();
     UserAdapter userAdapter;
     FloatingActionButton QRC;
-    
+
     public Artesaos() {
         // Required empty public constructor
     }
@@ -44,6 +45,13 @@ public class Artesaos extends Fragment {
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getActivity());
 
         QRC = rootView.findViewById(R.id.floatQRC);
+        QRC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), QRS.class);
+                startActivity(i);
+            }
+        });
 
         rv = rootView.findViewById(R.id.recViewArtesao);
         rv.setHasFixedSize(true);

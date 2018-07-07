@@ -37,7 +37,6 @@ public class LoadingActivity extends AppCompatActivity {
         View decorView = getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
         decorView.setSystemUiVisibility(uiOptions);
-        System.out.println(FirebaseAuth.getInstance().getCurrentUser());
 
         FirebaseApp.initializeApp(this);
         loadUsers();
@@ -82,10 +81,13 @@ public class LoadingActivity extends AppCompatActivity {
                     String photoID = ds.child("photoURL").getValue(String.class);
                     String email = ds.child("email").getValue(String.class);
                     if (tipo.equals("2")) {
+                        String codAtv = ds.child("codAtv").getValue(String.class);
+                        String nomeAtv = ds.child("nomeAtv").getValue(String.class);
                         Double xCoor = ds.child("xCoor").getValue(Double.class);
                         Double yCoor = ds.child("yCoor").getValue(Double.class);
                         if (init) {
-                            Artesao art = new Artesao(id, nome, photoID, email, tipo, xCoor, yCoor);
+                            System.out.println(nomeAtv);
+                            Artesao art = new Artesao(id, nome, photoID, email, tipo, nomeAtv, codAtv, xCoor, yCoor);
                             artToList(art);
                             init = false;
                         } else {
@@ -98,10 +100,12 @@ public class LoadingActivity extends AppCompatActivity {
                                 }
                             }
                             if (!exists) {
-                                Artesao art = new Artesao(id, nome, photoID, email, tipo, xCoor, yCoor);
+                                System.out.println(nomeAtv);
+                                Artesao art = new Artesao(id, nome, photoID, email, tipo, nomeAtv, codAtv,  xCoor, yCoor);
                                 artToList(art);
                             } else {
-                                Artesao art = new Artesao(id, nome, photoID, email, tipo, xCoor, yCoor);
+                                System.out.println(nomeAtv);
+                                Artesao art = new Artesao(id, nome, photoID, email, tipo, nomeAtv, codAtv,  xCoor, yCoor);
                                 ArtesaoFirebaseManager.getInstance().getArtList().set(z, art);
                             }
                         }
