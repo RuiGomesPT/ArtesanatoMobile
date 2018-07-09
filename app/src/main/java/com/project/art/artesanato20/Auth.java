@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -16,10 +17,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.squareup.picasso.Picasso;
 
 public class Auth extends AppCompatActivity implements View.OnClickListener {
     GoogleSignInClient mGoogleSignInClient;
     static final int RC_SIGN_IN = 1;
+    ImageView background, icon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +34,10 @@ public class Auth extends AppCompatActivity implements View.OnClickListener {
                 .requestEmail()
                 .build();
 
-
-
+        background = findViewById(R.id.imgBackground);
+        icon = findViewById(R.id.imgIcon);
+        Picasso.get().load("https://upload.wikimedia.org/wikipedia/commons/5/57/VCD1.png").fit().into(icon);
+        Picasso.get().load("http://iporto.amp.pt/eventos/34a-feira-nacional-de-artesanato-de-vila-do-conde/picture_eventview").fit().into(background);
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
         findViewById(R.id.sign_in_button).setOnClickListener(this);

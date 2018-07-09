@@ -80,7 +80,9 @@ public class Mapa extends Fragment implements GoogleMap.OnMarkerClickListener {
                 public void onComplete(@NonNull Task task) {
                     if (task.isSuccessful()) {
                         Location currentLocation = (Location) task.getResult();
-                        latlng = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
+                        if (currentLocation != null) {
+                            latlng = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
+                        }
                         //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latlng, DEFAULT_ZOOM));
                         populateMap();
                     }

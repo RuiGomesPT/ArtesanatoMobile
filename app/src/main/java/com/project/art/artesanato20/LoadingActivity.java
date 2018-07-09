@@ -172,7 +172,6 @@ public class LoadingActivity extends AppCompatActivity {
                     String id = ds.child("id").getValue(String.class);
                     String nome = ds.child("name").getValue(String.class);
                     String nomeCriador = ds.child("nameCreator").getValue(String.class);
-                    int likes = Integer.parseInt(ds.child("likes").getValue(String.class));
                     String photoURL = ds.child("photoURL").getValue(String.class);
                     String uid = ds.child("uid").getValue(String.class);
                     ArrayList<String> likesList = new ArrayList<>();
@@ -182,7 +181,7 @@ public class LoadingActivity extends AppCompatActivity {
                     }
 
                     if (init) {
-                        Artigo artigo = new Artigo(id, nome, uid, nomeCriador, photoURL, likes, likesList);
+                        Artigo artigo = new Artigo(id, nome, uid, nomeCriador, photoURL, likesList);
                         itemToList(artigo);
                         init = false;
                     } else {
@@ -195,10 +194,10 @@ public class LoadingActivity extends AppCompatActivity {
                             }
                         }
                         if (!exists) {
-                            Artigo artigo = new Artigo(id, nome, uid, nomeCriador, photoURL, likes, likesList);
+                            Artigo artigo = new Artigo(id, nome, uid, nomeCriador, photoURL, likesList);
                             itemToList(artigo);
                         } else {
-                            Artigo artigo = new Artigo(id, nome, uid, nomeCriador, photoURL, likes, likesList);
+                            Artigo artigo = new Artigo(id, nome, uid, nomeCriador, photoURL, likesList);
                             ArtigoFirebaseManager.getInstance().getItemList().set(z, artigo);
                         }
                     }
