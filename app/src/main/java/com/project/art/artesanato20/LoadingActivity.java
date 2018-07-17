@@ -15,9 +15,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.project.art.artesanato20.impl.ArtesaoFirebaseManager;
 import com.project.art.artesanato20.impl.ArtigoFirebaseManager;
+import com.project.art.artesanato20.impl.EventFirebaseManager;
 import com.project.art.artesanato20.impl.UserFirebaseManager;
 import com.project.art.artesanato20.models.Artesao;
 import com.project.art.artesanato20.models.Artigo;
+import com.project.art.artesanato20.models.Event;
 import com.project.art.artesanato20.models.User;
 
 import java.util.ArrayList;
@@ -25,6 +27,7 @@ import java.util.ArrayList;
 public class LoadingActivity extends AppCompatActivity {
     public ArrayList<User> USERS;
     public ArrayList<Artigo> ITEMS;
+    public ArrayList<Event> EVENTS;
     public boolean init = true;
     int z = 0;
 
@@ -41,6 +44,7 @@ public class LoadingActivity extends AppCompatActivity {
         FirebaseApp.initializeApp(this);
         loadUsers();
         loadItems();
+        loadEvents();
 
         Thread welcomeThread = new Thread() {
 
@@ -86,7 +90,6 @@ public class LoadingActivity extends AppCompatActivity {
                         Double xCoor = ds.child("xCoor").getValue(Double.class);
                         Double yCoor = ds.child("yCoor").getValue(Double.class);
                         if (init) {
-                            System.out.println(nomeAtv);
                             Artesao art = new Artesao(id, nome, photoID, email, tipo, nomeAtv, codAtv, xCoor, yCoor);
                             artToList(art);
                             init = false;
@@ -100,11 +103,9 @@ public class LoadingActivity extends AppCompatActivity {
                                 }
                             }
                             if (!exists) {
-                                System.out.println(nomeAtv);
                                 Artesao art = new Artesao(id, nome, photoID, email, tipo, nomeAtv, codAtv,  xCoor, yCoor);
                                 artToList(art);
                             } else {
-                                System.out.println(nomeAtv);
                                 Artesao art = new Artesao(id, nome, photoID, email, tipo, nomeAtv, codAtv,  xCoor, yCoor);
                                 ArtesaoFirebaseManager.getInstance().getArtList().set(z, art);
                             }
@@ -150,12 +151,6 @@ public class LoadingActivity extends AppCompatActivity {
         });
 
 
-    }
-
-
-
-    public void userToList(User user) {
-        UserFirebaseManager.getInstance().addUserToList(user);
     }
 
     public void loadItems() {
@@ -218,9 +213,70 @@ public class LoadingActivity extends AppCompatActivity {
         });
     }
 
+    public void loadEvents() {
+        EVENTS = EventFirebaseManager.getInstance().getEventList();
+        EventFirebaseManager.getInstance().clearList();
+
+        DatabaseReference dataItems;
+        dataItems = FirebaseDatabase.getInstance().getReference().child("events");
+        dataItems.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds: dataSnapshot.getChildren()) {
+                    String id = ds.child("id").getValue(String.class);
+                    String nome = ds.child("nome").getValue(String.class);
+                    String data = ds.child("data").getValue(String.class);
+                    String hora = ds.child("hora").getValue(String.class);
+                    String info = ds.child("info").getValue(String.class);
+                    String imgURL = ds.child("imgURL").getValue(String.class);
+
+
+                    if (init) {
+                        Event event = new Event(id, nome, info, data, hora, imgURL);
+                        eventToList(event);
+                        init = false;
+                    } else {
+                        boolean exists = false;
+                        ArrayList<Event> EVENTSF = EventFirebaseManager.getInstance().getEventList();
+                        for (int i = 0; i < EVENTSF.size(); i++) {
+                            if (EVENTSF.get(i).getId().equals(id)) {
+                                exists = true;
+                                z = i;
+                            }
+                        }
+                        if (!exists) {
+                            Event event = new Event(id, nome, info, data, hora, imgURL);
+                            eventToList(event);
+                        } else {
+                            Event event = new Event(id, nome, info, data, hora, imgURL);
+                            EventFirebaseManager.getInstance().getEventList().set(z, event);
+                        }
+                    }
+
+
+
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.d("Error", databaseError.toString());
+            }
+
+
+        });
+    }
+
+    public void userToList(User user) {
+        UserFirebaseManager.getInstance().addUserToList(user);
+    }
+
     public void itemToList(Artigo artigo) {ArtigoFirebaseManager.getInstance().addItemToList(artigo);}
 
-
     public void artToList(Artesao art) {ArtesaoFirebaseManager.getInstance().addArtToList(art);}
+
+    public void eventToList(Event event) {EventFirebaseManager.getInstance().addEventToList(event);}
 }
 
