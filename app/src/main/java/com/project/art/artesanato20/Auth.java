@@ -49,8 +49,8 @@ public class Auth extends AppCompatActivity implements View.OnClickListener {
     protected void onStart() {
         super.onStart();
 
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        updateUI(account);
+        //GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+        //updateUI(account);
     }
 
     public void updateUI(GoogleSignInAccount account) {

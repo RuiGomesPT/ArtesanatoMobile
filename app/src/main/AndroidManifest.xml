@@ -54,8 +54,14 @@
             android:name=".Profile"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".QRS" />
-        <activity android:name=".PerfilArtesao"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".PerfilArtesao"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".EventsActivity" />
+
+        <service
+            android:name=".NotService"
+            android:exported="false"></service>
     </application>
 
 </manifest>

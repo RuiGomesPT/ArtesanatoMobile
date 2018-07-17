@@ -32,4 +32,11 @@ public class Split extends AppCompatActivity {
         startActivity(i);
         finish();
     }
+
+    public void getEvents(View view) {
+        Intent i = new Intent(Split.this,
+                EventsActivity.class);
+        startActivity(i);
+        finish();
+    }
 }
