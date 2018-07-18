@@ -39,15 +39,13 @@ public class NotService extends Service {
         Bundle extras = intent.getExtras();
         if (extras != null) {
             String id = extras.getString("id");
+            for (int i = 0; i < EVENTS.size(); i++) {
+                
+            }
             Event EVENT = EventFirebaseManager.getInstance().getEventById(id);
             EVENTS.add(EVENT);
 
-        }
-
-        for (int i = 0; i < EVENTS.size(); i++) {
-            //String dateString = EVENTS.get(i).getData() + " " + EVENTS.get(i).getHora();
-            String dateString = "17/07/2018 19:14";
-
+            String dateString = EVENT.getData() + " " + EVENT.getHora();
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
             sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
             try {
@@ -57,13 +55,13 @@ public class NotService extends Service {
                 Intent myIntent;
                 PendingIntent pendingIntent;
                 myIntent = new Intent(NotService.this, NotReceiver.class);
+                myIntent.putExtra("id", EVENT.getId());
                 pendingIntent = PendingIntent.getBroadcast(this, 0, myIntent, 0);
-                System.out.println(timeInMilliseconds);
-                System.out.println(System.currentTimeMillis());
                 am.set(AlarmManager.RTC_WAKEUP, timeInMilliseconds, pendingIntent);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
+
         }
 
         return START_NOT_STICKY;

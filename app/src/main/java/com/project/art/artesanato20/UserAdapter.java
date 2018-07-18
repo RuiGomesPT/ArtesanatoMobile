@@ -66,7 +66,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
 
         public ViewHolder(View itemView) {
             super(itemView);
-            System.out.println("Mmm");
             name = itemView.findViewById(R.id.nameArtCard);
             type = itemView.findViewById(R.id.typeArtCard);
             image = itemView.findViewById(R.id.imgArtLay);

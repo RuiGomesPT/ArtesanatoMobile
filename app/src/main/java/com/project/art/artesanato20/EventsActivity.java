@@ -15,14 +15,23 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.View;
+
+import com.project.art.artesanato20.impl.ArtigoFirebaseManager;
+import com.project.art.artesanato20.impl.EventFirebaseManager;
+import com.project.art.artesanato20.models.Event;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Calendar;
 
 public class EventsActivity extends AppCompatActivity {
-
+    RecyclerView rv;
+    ArrayList<Event> EVENTS = new ArrayList<>();
+    EventAdapter eventAdapter;
     NotificationCompat.Builder notification;
     private static final int uniqueID = 45612;
     private static final String CHANNEL_ID = "123";
@@ -37,15 +46,42 @@ public class EventsActivity extends AppCompatActivity {
         NotificationManager nm = getSystemService(NotificationManager.class);
         nm.createNotificationChannel(serviceChannel);
 
+
+        rv = findViewById(R.id.recViewEvents);
+        rv.setHasFixedSize(true);
+
+        LinearLayoutManager llm = new LinearLayoutManager(this.getBaseContext());
+        rv.setLayoutManager(llm);
+
+        EVENTS = EventFirebaseManager.getInstance().getEventList();
+
+        fillEventList();
+
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public void sendNotif(View view) {
+    public void fillEventList() {
+        EVENTS = EventFirebaseManager.getInstance().getEventList();
+        System.out.println(EVENTS.size());
+        eventAdapter = new EventAdapter(EVENTS);
+        rv.setAdapter(eventAdapter);
+    }
 
-        Intent intent = new Intent(this, NotService.class);
-        intent.putExtra("id", "-LFwTZES1usXB2nw6555");
-        startService(intent);
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        finish();
+    }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if ((keyCode == KeyEvent.KEYCODE_BACK))
+        {
+            Intent i = new Intent(EventsActivity.this, Split.class);
+            this.startActivity(i);
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
 
