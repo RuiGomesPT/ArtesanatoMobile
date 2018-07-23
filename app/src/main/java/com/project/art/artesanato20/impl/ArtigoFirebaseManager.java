@@ -2,6 +2,7 @@ package com.project.art.artesanato20.impl;
 
 import com.project.art.artesanato20.models.Artigo;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class ArtigoFirebaseManager implements IArtigo {
@@ -36,6 +37,18 @@ public class ArtigoFirebaseManager implements IArtigo {
             }
         }
         return artigo;
+    }
+
+    public ArrayList<Artigo> getArtigosByTags(ArrayList<String> TAGS) {
+        ArrayList<Artigo> ARTIGOS = new ArrayList<Artigo>();
+        for (int i = 0; i < itemList.size(); i++) {
+            for (int z = 0; z < TAGS.size(); z++) {
+                if (TAGS.get(z).equals(itemList.get(i).getTipo())) {
+                    ARTIGOS.add(itemList.get(i));
+                }
+            }
+        }
+        return ARTIGOS;
     }
 
     public void clearList() {

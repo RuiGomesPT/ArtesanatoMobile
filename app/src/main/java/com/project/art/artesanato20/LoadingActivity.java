@@ -83,6 +83,7 @@ public class LoadingActivity extends AppCompatActivity {
                     String id = ds.child("uid").getValue(String.class);
                     String nome = ds.child("displayName").getValue(String.class);
                     String photoID = ds.child("photoURL").getValue(String.class);
+
                     String email = ds.child("email").getValue(String.class);
                     if (tipo.equals("2")) {
                         String codAtv = ds.child("codAtv").getValue(String.class);
@@ -169,14 +170,11 @@ public class LoadingActivity extends AppCompatActivity {
                     String nomeCriador = ds.child("nameCreator").getValue(String.class);
                     String photoURL = ds.child("photoURL").getValue(String.class);
                     String uid = ds.child("uid").getValue(String.class);
-                    ArrayList<String> likesList = new ArrayList<>();
+                    String type = ds.child("type").getValue(String.class);
 
-                    for (DataSnapshot likesShot: ds.child("likesList").getChildren()) {
-                        likesList.add(likesShot.getValue().toString());
-                    }
 
                     if (init) {
-                        Artigo artigo = new Artigo(id, nome, uid, nomeCriador, photoURL, likesList);
+                        Artigo artigo = new Artigo(id, nome, uid, nomeCriador, photoURL, type);
                         itemToList(artigo);
                         init = false;
                     } else {
@@ -189,10 +187,10 @@ public class LoadingActivity extends AppCompatActivity {
                             }
                         }
                         if (!exists) {
-                            Artigo artigo = new Artigo(id, nome, uid, nomeCriador, photoURL, likesList);
+                            Artigo artigo = new Artigo(id, nome, uid, nomeCriador, photoURL, type);
                             itemToList(artigo);
                         } else {
-                            Artigo artigo = new Artigo(id, nome, uid, nomeCriador, photoURL, likesList);
+                            Artigo artigo = new Artigo(id, nome, uid, nomeCriador, photoURL, type);
                             ArtigoFirebaseManager.getInstance().getItemList().set(z, artigo);
                         }
                     }

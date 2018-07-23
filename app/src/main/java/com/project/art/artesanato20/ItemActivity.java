@@ -102,7 +102,7 @@ public class ItemActivity extends AppCompatActivity {
 
         name.setText(artigo.getNome());
         nameArt.setText(artesao.getName());
-
+        type.setText(artigo.getTipo());
 
         imageLoader = ImageLoader.getInstance();
 

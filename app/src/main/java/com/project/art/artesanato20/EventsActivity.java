@@ -64,7 +64,6 @@ public class EventsActivity extends AppCompatActivity {
 
     public void fillEventList() {
         EVENTS = EventFirebaseManager.getInstance().getEventList();
-        System.out.println(EVENTS.size());
         eventAdapter = new EventAdapter(EVENTS);
         rv.setAdapter(eventAdapter);
     }

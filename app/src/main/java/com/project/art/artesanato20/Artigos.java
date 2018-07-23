@@ -34,7 +34,7 @@ public class Artigos extends Fragment {
     private ArrayList<String> tags = new ArrayList<>();
     FloatingActionButton filterBtn;
     ArrayList<Artigo> ARTIGOS = new ArrayList<>();
-    GoogleSignInClient mGoogleSignInClient;
+
 
     public Artigos() {
         // Required empty public constructor
@@ -46,7 +46,6 @@ public class Artigos extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.fragment_artigos, container, false);
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getActivity());
 
         rv = rootView.findViewById(R.id.recViewArtigos);
         rv.setHasFixedSize(true);
@@ -55,7 +54,6 @@ public class Artigos extends Fragment {
         rv.setLayoutManager(llm);
 
         ARTIGOS = ArtigoFirebaseManager.getInstance().getItemList();
-
         fillArtList(rootView);
 
         filterBtn = rootView.findViewById(R.id.filterBtnArt);
@@ -92,10 +90,16 @@ public class Artigos extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                         tags.clear();
+                        ARTIGOS = ArtigoFirebaseManager.getInstance().getItemList();
                         //  Your code when user clicked on OK
                         //  You can write the code  to save the selected item here
                         for (int i = 0; i < selectedItems.size(); i++) {
                             tags.add(selectedItems.get(i).toString());
+                        }
+                        if (tags.isEmpty()) {
+                            ARTIGOS = ArtigoFirebaseManager.getInstance().getItemList();
+                        } else {
+                            ARTIGOS = ArtigoFirebaseManager.getInstance().getArtigosByTags(tags);
                         }
 
                         fillArtList(view);
@@ -112,8 +116,7 @@ public class Artigos extends Fragment {
 
     public void fillArtList(View view) {
 
-        ARTIGOS = ArtigoFirebaseManager.getInstance().getItemList();
-        System.out.println(ARTIGOS.size());
+
         artAdapter = new ArtAdapter(ARTIGOS);
         rv.setAdapter(artAdapter);
     }

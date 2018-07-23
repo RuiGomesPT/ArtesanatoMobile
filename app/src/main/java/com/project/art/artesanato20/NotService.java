@@ -29,7 +29,6 @@ public class NotService extends Service {
 
     @Override
     public void onCreate() {
-        System.out.println("cao");
         super.onCreate();
     }
 

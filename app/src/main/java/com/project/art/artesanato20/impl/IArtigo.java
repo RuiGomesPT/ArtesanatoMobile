@@ -12,5 +12,7 @@ public interface IArtigo {
 
     Artigo getArtigoById(String id);
 
+    ArrayList<Artigo> getArtigosByTags(ArrayList<String> tags);
+
     void clearList();
 }

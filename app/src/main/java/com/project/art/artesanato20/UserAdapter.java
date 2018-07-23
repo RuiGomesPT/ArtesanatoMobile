@@ -38,7 +38,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
     public void onBindViewHolder(@NonNull UserAdapter.ViewHolder holder, int position) {
         final Artesao artesao = artList.get(position);
         holder.name.setText(artesao.getName());
-        System.out.println(artesao.getNomeAtv());
         holder.type.setText(artesao.getNomeAtv());
 
         Picasso.get().load(artesao.getPhotoURL()).fit().into(holder.image);

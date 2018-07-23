@@ -8,19 +8,19 @@ public class Artigo {
     public String id_creator;
     public String nome_creator;
     public String photoURL;
-    public ArrayList<String> likesList;
+    public String tipo;
 
     public Artigo() {
 
     }
 
-    public Artigo(String id, String nome, String id_creator, String nome_creator, String photoURL, ArrayList<String> likesList) {
+    public Artigo(String id, String nome, String id_creator, String nome_creator, String photoURL, String tipo) {
         this.id = id;
         this.nome = nome;
         this.id_creator = id_creator;
         this.nome_creator = nome_creator;
         this.photoURL = photoURL;
-        this.likesList = likesList;
+        this.tipo = tipo;
     }
 
     public String getId() {
@@ -63,11 +63,11 @@ public class Artigo {
         this.photoURL = photoURL;
     }
 
-    public ArrayList<String> getLikesList() {
-        return likesList;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setLikesList(ArrayList<String> likesList) {
-        this.likesList = likesList;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 }
