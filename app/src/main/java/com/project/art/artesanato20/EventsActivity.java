@@ -42,9 +42,12 @@ public class EventsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events);
 
-        NotificationChannel serviceChannel = new NotificationChannel(CHANNEL_ID, "Artesanato", NotificationManager.IMPORTANCE_DEFAULT);
-        NotificationManager nm = getSystemService(NotificationManager.class);
-        nm.createNotificationChannel(serviceChannel);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel serviceChannel = new NotificationChannel(CHANNEL_ID, "Artesanato", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager nm = getSystemService(NotificationManager.class);
+            nm.createNotificationChannel(serviceChannel);
+        }
+
 
 
         rv = findViewById(R.id.recViewEvents);
