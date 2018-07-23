@@ -57,13 +57,21 @@
         <activity
             android:name=".PerfilArtesao"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".EventsActivity" />
+        <activity
+            android:name=".EventsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".ArtigosArt"
+            android:theme="@style/AppTheme.NoActionBar"/>
 
         <service
             android:name=".NotService"
-            android:exported="false"></service>
+            android:exported="false" />
 
-        <receiver android:name=".NotReceiver"></receiver>
+        <receiver android:name=".NotReceiver" />
+
+
     </application>
 
 </manifest>

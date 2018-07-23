@@ -13,6 +13,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -43,6 +44,7 @@ public class PerfilArtesao extends AppCompatActivity {
     Artesao ARTESAO;
     TextView nome, atv, email;
     ImageView img;
+    Button viewPrefArt;
     ImageLoader imageLoader;
     SupportMapFragment mapFragment;
     private StorageReference mStorageRef;
@@ -93,6 +95,17 @@ public class PerfilArtesao extends AppCompatActivity {
 
         img = findViewById(R.id.imgPerfArt);
         Picasso.get().load(ARTESAO.getPhotoURL()).fit().into(img);
+
+        viewPrefArt = findViewById(R.id.viewPrefArt);
+        viewPrefArt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(PerfilArtesao.this, ArtigosArt.class);
+                i.putExtra("id", ARTESAO.getId());
+                startActivity(i);
+            }
+        });
+
     }
 
     private void getLocationPermission() {

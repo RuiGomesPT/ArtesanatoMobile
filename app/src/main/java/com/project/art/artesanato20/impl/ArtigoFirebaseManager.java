@@ -51,6 +51,16 @@ public class ArtigoFirebaseManager implements IArtigo {
         return ARTIGOS;
     }
 
+    public ArrayList<Artigo> getArtigosByCreator (String id) {
+        ArrayList<Artigo> ARTIGOS = new ArrayList<Artigo>();
+        for (int i = 0; i < itemList.size(); i++) {
+            if (id.equals(itemList.get(i).getId_creator())) {
+                ARTIGOS.add(itemList.get(i));
+            }
+        }
+        return ARTIGOS;
+    }
+
     public void clearList() {
         itemList.clear();
     }

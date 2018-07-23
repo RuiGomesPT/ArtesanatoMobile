@@ -14,5 +14,7 @@ public interface IArtigo {
 
     ArrayList<Artigo> getArtigosByTags(ArrayList<String> tags);
 
+    ArrayList<Artigo> getArtigosByCreator(String id);
+
     void clearList();
 }
