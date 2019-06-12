@@ -104,7 +104,7 @@ public class LoadingActivity extends AppCompatActivity {
                                 }
                             }
                             if (!exists) {
-                                Artesao art = new Artesao(id, nome, photoID, email, tipo, nomeAtv, codAtv,  xCoor, yCoor);
+                                 Artesao art = new Artesao(id, nome, photoID, email, tipo, nomeAtv, codAtv,  xCoor, yCoor);
                                 artToList(art);
                             } else {
                                 Artesao art = new Artesao(id, nome, photoID, email, tipo, nomeAtv, codAtv,  xCoor, yCoor);

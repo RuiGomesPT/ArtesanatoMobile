@@ -106,7 +106,10 @@ public class Mapa extends Fragment implements GoogleMap.OnMarkerClickListener {
                         if (currentLocation != null) {
                             latlng = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
                         }
-                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latlng, DEFAULT_ZOOM));
+                        if (latlng != null) {
+                            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latlng, DEFAULT_ZOOM));
+                        }
+
                         populateMap();
                     }
                 }
